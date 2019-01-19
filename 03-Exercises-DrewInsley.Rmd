@@ -1,0 +1,43 @@
+---
+title: "Chapter 3 Exercises"
+author: "Drew Insley"
+date: "1/20/19"
+output: html_notebook
+---
+
+#Front Matter
+
+```{r message=FALSE, warning=FALSE}
+# clean the enviornment
+rm(list = ls())
+
+# load packages
+library(NHANES)
+library(ggplot2)
+library(mosaic)
+
+#load data
+data("NHANES")
+```
+
+## Reproduce Figure 3.18
+
+```{r}
+# p. 47
+
+# Inspect the Data
+NHANES
+
+# Data Wrangling
+Nhanes2 <-
+  NHANES %>%
+  select(AgeDecade, BMI_WHO, Diabetes) %>%
+  arrange(AgeDecade)
+
+Nhanes2Clean <-
+  NHANES2[- c(1:2766), ]
+
+Nhanes2Plot <-
+  mosaicplot(~ AgeDecade + BMI_WHO + Diabetes, data = NHANES2, shade = TRUE)
+```
+

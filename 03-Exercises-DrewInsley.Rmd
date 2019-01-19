@@ -43,7 +43,7 @@ NHANES2Clean <-
   NHANES2[- c(1:2766), ]
 
 NHANES2Plot <-
-  mosaicplot(~ droplevels(AgeDecade) + BMI_WHO + Diabetes, data = NHANES2, shade = TRUE, xlab = "AgeDecade")
+  mosaicplot(~ droplevels(AgeDecade) + BMI_WHO + Diabetes, data = NHANES2Clean, shade = TRUE, xlab = "AgeDecade")
 
 ```
 

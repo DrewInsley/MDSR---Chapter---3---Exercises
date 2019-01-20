@@ -99,8 +99,44 @@ w_plot +
 ### Part 2
 
 ```{r}
+# Make changes
+w_plot <-
+  com_fem %>%
+  ggplot(aes(x = reorder(name, -median_age), y = median_age)) +
+  xlab(NULL) +
+  ylab("Age (in years)") +
+  ggtitle("Median ages for females with the 25 most common names")
 
+w_plot <-
+  w_plot +
+  geom_linerange(aes(ymin = q1_age, ymax = q3_age), color = "#f3d478", size = 10, alpha = 0.8)
+
+w_plot <-
+  w_plot +
+  geom_point(fill = "#ed3324", colour = "white", size = 4, shape = 21)
+
+w_plot +
+  geom_point(aes(y = 55, x = 24), fill = "#ed3324", colour = "white", size = 4, shape = 21) +
+  geom_text(aes(y = 58, x = 24, label = "median")) +
+  geom_text(aes(y = 26, x = 16, label = "25th")) +
+  geom_text(aes(y = 51, x = 16, label = "75th percentile")) +
+  geom_point(aes(y = 24, x = 16), shape = 17) +
+  geom_point(aes(y = 56, x =16), shape = 17) +
+  coord_flip() +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        line = element_blank(),
+        plot.title = element_text(face = "bold", size = 15)) +
+  geom_hline(yintercept = c(15, 25, 35, 35, 45, 55, 65, 75), alpha = .8, colour = "gray")
+  
 ```
 
+List of changes:
 
+1. Took out the gridlines
+2. Bolded the title
+3. Added vertical lines at 15, 25, 35, 45, 55, 65, and 75
+4. Changed the background color to white using the black and white theme
 

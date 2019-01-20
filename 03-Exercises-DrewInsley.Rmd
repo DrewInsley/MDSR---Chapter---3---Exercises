@@ -49,6 +49,8 @@ NHANES2Plot <-
 
 ## Reproduce Figure 3.27
 
+### Part 1
+
 ```{r}
 # p. 56
 com_fem <-
@@ -92,6 +94,12 @@ w_plot +
   geom_point(aes(y = 24, x = 16), shape = 17) +
   geom_point(aes(y = 56, x =16), shape = 17) +
   coord_flip()
+```
+
+### Part 2
+
+```{r}
+
 ```
 
 
